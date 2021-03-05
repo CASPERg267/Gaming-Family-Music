@@ -1,23 +1,23 @@
 FROM node:12.19-slim
 
-ENV USER=evobot
+ENV USER=Gaming Family Music
 
 # install python and make
 RUN apt-get update && \
 	apt-get install -y python3 build-essential && \
 	apt-get purge -y --auto-remove
 	
-# create evobot user
+# create Gaming Family Music user
 RUN groupadd -r ${USER} && \
-	useradd --create-home --home /home/evobot -r -g ${USER} ${USER}
+	useradd --create-home --home /home/Gaming Family Music -r -g ${USER} ${USER}
 	
 # set up volume and user
 USER ${USER}
-WORKDIR /home/evobot
+WORKDIR /home/Gaming Family Music
 
 COPY package*.json ./
 RUN npm install
-VOLUME [ "/home/evobot" ]
+VOLUME [ "/home/Gaming Family Music" ]
 
 COPY . .
 
